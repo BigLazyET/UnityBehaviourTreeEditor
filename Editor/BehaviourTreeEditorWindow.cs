@@ -277,8 +277,12 @@ namespace TheKiwiCoder {
         }
 
         void CloseRuntimeTabs() {
-            var tabs = tabView.Query<TreeViewTab>().ToList();
-            foreach (var tab in tabs) {
+            if (tabView == null)
+                return;
+            var tabs = tabView.Query<TreeViewTab>();
+            if (tabs == null)
+                return;
+            foreach (var tab in tabs.ToList()) {
                 if (tab.isRuntimeTab) {
                     tab.Close();
                 }
