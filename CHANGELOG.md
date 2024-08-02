@@ -10,12 +10,21 @@ All notable changes to this package will be documented in this file.
 - Close runtime tabs when exiting playmode.
 - Editor window state is now serialized. Previous tabs will be restored after closing and reopening the window.
 - New node script assets will be opened automatically in visual studio after compilation.
+- Added subtree section to node canvas context menu
+- Added New Subtree option to node canvas context menu
+- Snap new nodes created via context menu to the grid
+- Added Expand Subtree context menu option to subtree nodes
 
 ## Removed
 - Removed breadcrumbs from main panel toolbar. Replaced with tabs
 
 ## Fixed
 - Blackboard key value property label not appearing on some nodes
+- Fixed node states in debugger when using subtrees
+- Double clicking a subtree node when in playmode will open tree instance instead of asset
+- [Opening BehaviourTree Editor causes error #15](https://github.com/thekiwicoder0/UnityBehaviourTreeEditor/issues/15)
+- [Chance of failure comparison](https://github.com/thekiwicoder0/UnityBehaviourTreeEditor/issues/9)
+- [Blackboard keys can now be deleted using the delete key](https://github.com/thekiwicoder0/UnityBehaviourTreeEditor/issues/2)
 
 # [0.0.30] - 01-06-2024
 ## Changed
