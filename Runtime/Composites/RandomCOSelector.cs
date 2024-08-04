@@ -12,18 +12,20 @@ namespace BigLazyET.BT
         [Tooltip("Do we want to use the seed?")]
         public bool useSeed = false;
 
-        private List<int> childIndexList = new List<int>();
-        private Stack<int> childrenExecutionOrder = new Stack<int>();
+        protected List<int> childIndexList = new List<int>();
+        protected Stack<int> childrenExecutionOrder = new Stack<int>();
 
-        protected override void OnStart()
+        public override void OnInit()
         {
-            if (childrenExecutionOrder.Any())
-                return;
+            base.OnInit();
 
             // If specified, use the seed provided.
             if (useSeed)
                 Random.InitState(seed);
+        }
 
+        protected override void OnStart()
+        {
             // Add the index of each child to a list to make the Fischer-Yates shuffle possible.
             childIndexList.Clear();
             childrenExecutionOrder.Clear();
@@ -58,7 +60,7 @@ namespace BigLazyET.BT
             return State.Failure;
         }
 
-        private void ShuffleChilden()
+        protected virtual void ShuffleChilden()
         {
             // Use Fischer-Yates shuffle to randomize the child index order.
             for (int i = childIndexList.Count; i > 0; --i)
